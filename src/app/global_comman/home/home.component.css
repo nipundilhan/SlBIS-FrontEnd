@@ -152,10 +152,10 @@ p {
 
 .whatsapp-chat-button {
   position: fixed; /* Makes it float */
-  bottom: 20px; /* Adjusts distance from bottom */
-  right: 20px; /* Adjusts distance from right */
-  width: 100px; /* Button size */
-  height: 100px;
+  bottom: 20px; /* Distance from bottom */
+  left: 20px; /* Moves it to the left side */
+  width: 80px; /* Button size */
+  height: 80px; /* Fixed incorrect height */
   background-color: #25d366; /* WhatsApp green */
   border-radius: 50%; /* Makes it circular */
   display: flex;
@@ -167,11 +167,12 @@ p {
   z-index: 9999; /* Ensures it stays above all elements */
 }
 
+/* Hover effect */
 .whatsapp-chat-button:hover {
   transform: scale(1.1);
 }
 
 .whatsapp-chat-button img {
-  width: 40px; /* Icon size */
-  height: 40px;
+  width: 25px; /* Icon size */
+  height: 25px;
 }
