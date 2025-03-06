@@ -37,10 +37,12 @@ export class AppComponent {
     if(!this.userAuthService.getLanguage()){    
       this.userAuthService.setLanguage('en');
     }
-       this.router.navigate(['/home']);
+    //this.router.navigate(['/home']);
 
 
    }
+
+
 
 
 
@@ -60,6 +62,10 @@ export class AppComponent {
     }else{
       return false;
     }
+  }
+
+  ngOnInit(): void {
+    this.router.navigate(['/home']);
   }
 
 

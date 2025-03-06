@@ -20,7 +20,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item dropdownLanguage">
+          <li class="nav-item dropdownLanguage" *ngIf="isLoggedIn()">
             <select id="language" [(ngModel)]="selectedLanguage" (change)="switchLanguage(selectedLanguage)" >
               <option value="ja">日本語 </option>
               <option value="en">English</option>             
