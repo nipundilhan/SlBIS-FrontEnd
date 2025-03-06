@@ -1,0 +1,30 @@
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  @media screen and (max-width: 768px) {
+    table {
+      font-size: 12px;
+    }
+    th, td {
+      padding: 6px;
+    }
+  }

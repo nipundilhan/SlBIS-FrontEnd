@@ -1,0 +1,27 @@
+
+<div class="dashboard-background">
+<div class="header mt-4 pt-3">
+    <img src="https://slbis-photos.onrender.com/header.jpg" alt="SL BIS Header" class="header-image">
+  </div>
+  
+  <div id="dashboard" class="container">
+    <div class="grid">
+        <div class="app" *ngFor="let app of apps">
+          <a [href]="app.link" target="_blank">{{ app.name }}</a>
+        </div>
+      </div>
+  
+    <div class="sidebar ml-2 d-none d-md-block">
+      <h2>SL BIS Customer Care Solutions</h2>
+      <div class="centered">
+        <div class="clock">{{ time }}</div>
+        <div class="date">{{ currentDate | date: 'fullDate' }}</div>
+        <div class="calendar" [innerHTML]="calendarHtml"></div>
+        <div class="motto">
+          <strong><em>Quality Work Continuously on Well-Planned Processes</em></strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

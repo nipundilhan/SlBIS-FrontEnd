@@ -20,8 +20,8 @@ export class InquiriesViewComponent implements OnInit {
 
   // Search parameters
   searchParams = {
-    companyCode: '',
-    status: ''
+    companyCode: "",
+    status: ""
   };
 
   constructor(private http: HttpClient, private router: Router, public apiCallService: ApiCallService ,  private userAuthService: UserAuthService ) { }
@@ -39,7 +39,8 @@ export class InquiriesViewComponent implements OnInit {
 
       this.searchParams.status = "VERIFIED";
       this.searchParams.companyCode = this.getCompanyCode();
-      url = API_ENDPOINTS.INQUIRY.BASE + "/findByCompanyAndStatus/"+this.getCompanyCode()+"/"+this.searchParams.status;
+      let department = this.getDepartment();
+      url = API_ENDPOINTS.INQUIRY.BASE + "/findByCompanyAndStatus/"+this.getCompanyCode()+"/"+this.searchParams.status+(department ? "/" + department : "/");
     }else{
       url = API_ENDPOINTS.INQUIRY.BASE;
     }
@@ -88,8 +89,13 @@ export class InquiriesViewComponent implements OnInit {
   search(): void {
     this.currentPage = 1;  // Reset to the first page when performing a search
 
-    if (!this.searchParams.companyCode && !this.searchParams.status) {
-      alert("please select values for both dropdowns");
+    if (!this.searchParams.companyCode) {
+      alert("Please select values for both dropdowns");
+      return;
+    }
+
+    if (!this.searchParams.status) {
+      alert("Please select values for both dropdowns");
       return;
     }
 
@@ -97,8 +103,8 @@ export class InquiriesViewComponent implements OnInit {
 
     // Correct string interpolation for URL construction
 
-
-    let url = API_ENDPOINTS.INQUIRY.BASE + `/findByCompanyAndStatus/${companyCode || ''}/${status || ''}`;
+    let department = this.getDepartment();
+    let url = API_ENDPOINTS.INQUIRY.BASE + "/findByCompanyAndStatus/"+companyCode+"/"+status+(department ? "/" + department : "/");
 
 
 
@@ -165,6 +171,42 @@ export class InquiriesViewComponent implements OnInit {
     return this.userAuthService.getCompanyCode();
   }
 
+  getDepartment(){
+    if (this.userAuthService.getDepartment() === "ALL"){
+      return null;
+    }else{
+      return this.userAuthService.getDepartment();
+    }
+  }
+
+
+  getStatusClass(status: string): string {
+    switch (status) {
+      case 'VERIFICATION_PENDING':
+        return 'status-pending';
+      case 'VERIFIED':
+        return 'status-verified';
+      case 'REJECTED':
+        return 'status-rejected';
+      case 'COMPLETED':
+        return 'status-completed';
+      default:
+        return 'status-default'; // Fallback class
+    }
+  }
+
+  getPriorityClass(status: string): string {
+    switch (status) {
+      case 'LOW':
+        return 'low';
+      case 'MEDIUM':
+        return 'medium';
+      case 'HIGH':
+        return 'high';
+      default:
+        return 'status-default'; // Fallback class
+    }
+  }
 
 
 

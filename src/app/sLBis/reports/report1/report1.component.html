@@ -1,0 +1,56 @@
+<div class="container mt-4" style="background-color: #F5F5F5; padding: 10px; border-radius: 10px;">
+    <h2 class="text-center " >MONTHLY INQUIRIES - SLBIS REPORT</h2>
+  
+    <!-- Search Form -->
+    <div class="row" style="margin-left: 20px;" >
+      <div class="col-md-3">
+        <label for="companyCode" style="font-weight: bold;">Year:</label>
+        <select id="companyCode" [(ngModel)]="searchParams.year" class="form-control" >
+          <option value="2025">2025</option>
+          <option value="2026">2026</option>
+          <option value="2027">2027</option>
+          <option value="2028">2028</option>
+          <option value="2029">2029</option>
+        </select>
+      </div>
+  
+      <div class="col-md-3">
+        <label for="status" style="font-weight: bold;">Month</label>
+        <select id="month" [(ngModel)]="searchParams.month" class="form-control">
+            <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
+          </select>
+      </div>
+  
+      <div class="col-md-3 d-flex align-items-end">
+        <button (click)="search()" class="btn btn-success mt-2" style="margin-right: 10px;">Search</button>
+        <button (click)="reset()" class="btn btn-secondary mt-2">Reset</button>
+      </div>
+    </div>
+
+
+    <div class="table-container mt-4" style="background-color: #FFFAFA; padding: 25px; border-radius: 10px;">
+        <table class="table table-striped table-bordered mt-3" >
+          <thead>
+            <tr>
+              <th>Company Code</th>
+              <th *ngFor="let column of fixedColumns">{{ column }}</th>
+              <th>TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of reportData">
+              <td><strong>{{ row.companyCode }}</strong></td>
+              <td *ngFor="let column of fixedColumns">
+                {{ row.categories[column] !== undefined ? row.categories[column] : '-' }}
+              </td>
+              <td style="font-weight: bold;">{{ row.TOTAL }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="align-items-center">
+        <p style="font-size: 20px; font-weight: bold;"> Total Number of Inquiries - {{totalSum}}</p>
+      </div>
+
+</div>

@@ -26,17 +26,18 @@ export class LoginComponent implements OnInit {
       (response: any) => {
 
         this.userAuthService.setRole(response.user.role);
-        this.userAuthService.setCompanyCode(response.user.avatarCode);
+        this.userAuthService.setCompanyCode(response.user.companyCode);
+        this.userAuthService.setDepartment(response.user.department);
         this.userAuthService.setToken(response.jwtToken);
         this.userAuthService.setUserName(response.user.username);
         this.userAuthService.setUserId(response.user.userId);
         
         const role = response.user.role;
 
-        if (role === 'ADMIN') {
-          this.router.navigate(['/home']);
-        } else if (role === 'STUDENT') {
-          this.router.navigate(['/test']);
+        if (role === 'ROOTADMIN') {
+          this.router.navigate(['/dashboard']);
+        } else if (role === 'COMPANYADMIN') {
+          this.router.navigate(['/view-inquiries']);
         } else {
           this.router.navigate(['/home']);
         } 

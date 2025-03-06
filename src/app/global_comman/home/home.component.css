@@ -149,3 +149,29 @@ p {
     height: 600px;
     object-fit: cover;
 }
+
+.whatsapp-chat-button {
+  position: fixed; /* Makes it float */
+  bottom: 20px; /* Adjusts distance from bottom */
+  right: 20px; /* Adjusts distance from right */
+  width: 100px; /* Button size */
+  height: 100px;
+  background-color: #25d366; /* WhatsApp green */
+  border-radius: 50%; /* Makes it circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds shadow */
+  transition: transform 0.2s ease-in-out;
+  z-index: 9999; /* Ensures it stays above all elements */
+}
+
+.whatsapp-chat-button:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-chat-button img {
+  width: 40px; /* Icon size */
+  height: 40px;
+}

@@ -12,4 +12,14 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openWhatsApp() {
+    const phoneNumber = '94707070006'; // Business WhatsApp number (without + or spaces)
+    const message = encodeURIComponent('Hi,');
+    const url = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(url, '_blank');
+  }
+
+
+
+
 }

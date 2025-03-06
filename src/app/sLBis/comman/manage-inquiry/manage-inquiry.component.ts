@@ -15,6 +15,7 @@ import { UserAuthService } from 'src/app/_services/user-auth.service';
 })
 export class ManageInquiryComponent implements OnInit {
 
+  loading = false;
   inquiryDetails: any;
   inquiryId: any;
   filePreviews: SafeUrl[] = [];
@@ -159,10 +160,14 @@ export class ManageInquiryComponent implements OnInit {
       status: "VERIFIED"
     };
 
+    this.loading = true; // Start loading
+
     this.apiCallService.executePostNoAuth(API_ENDPOINTS.INQUIRY.CHANGE_STATUS ,req).subscribe(
       (response: any) => {
         this.getInquiry();
         alert("verified successfully");
+
+        this.loading = false; // Stop loading after response
         this.router.navigate(['/view-inquiries']);
         
 
@@ -211,7 +216,7 @@ export class ManageInquiryComponent implements OnInit {
       return;
     }
 
-
+    this.loading = true; // Start loading
 
     let req = {
       inquiryId: this.inquiryId,
@@ -222,6 +227,8 @@ export class ManageInquiryComponent implements OnInit {
       (response: any) => {
         this.getInquiry();
         alert("completed successfully");
+
+        this.loading = false;
         this.router.navigate(['/view-inquiries']);
         
 

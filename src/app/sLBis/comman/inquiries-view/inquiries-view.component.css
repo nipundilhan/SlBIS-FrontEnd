@@ -103,3 +103,47 @@
         display: none !important; /* Hide the columns on small screens */
       }
   }
+
+  .status-pending {
+    background-color: yellow;
+    color: black;
+  }
+  
+  .status-verified {
+    background-color: blue;
+    color: white;
+  }
+  
+  .status-rejected {
+    background-color: red;
+    color: black;
+  }
+  
+  .status-completed {
+    background-color: lawngreen;
+    color: black;
+  }
+  
+  .status-default {
+    background-color: white;
+    color: black;
+  }
+
+
+
+
+  .low {
+    background-color: lawngreen;
+    color: black;
+  }
+  
+  .medium {
+    background-color: orange;
+    color: black;
+  }
+  
+  .high {
+    background-color: red;
+    color: black;
+  }
+  

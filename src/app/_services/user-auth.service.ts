@@ -57,6 +57,15 @@ export class UserAuthService {
     return localStorage.getItem('company')! ;
   }
 
+  public setDepartment(company: string) {
+    localStorage.setItem('department', company);
+  }
+
+  public getDepartment(): string {
+    return localStorage.getItem('department')! ;
+  }
+
+
   
   public setToHome(toHome: string) {
     localStorage.setItem('toHome', toHome);

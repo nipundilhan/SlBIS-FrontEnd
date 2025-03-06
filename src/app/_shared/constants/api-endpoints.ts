@@ -30,6 +30,9 @@ export const API_ENDPOINTS = {
     ADD_MESSAGE: `${INQUIRY_BASE}/addMessage`,
     CHANGE_STATUS: `${INQUIRY_BASE}/changeStatus`,
     PRODUCTS: `${INQUIRY_BASE}/getProducts`,
+    REPORT1: `${INQUIRY_BASE}/report1`,
+    REPORT2: `${INQUIRY_BASE}/report2`,
+    SEND_REPORT2: `${INQUIRY_BASE}/send-report2`,
     GET_ONE: (id: string) => `${INQUIRY_BASE}${id}`, // Path variable example
   },
   USERS: {

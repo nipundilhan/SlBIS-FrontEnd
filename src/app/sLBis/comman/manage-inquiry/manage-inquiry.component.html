@@ -151,12 +151,22 @@
 
       <div class="button-container mt-2" *ngIf="getRole() === 'ROOTADMIN' ">
         <button class="btn btn-danger" (click)="reject()"  [disabled]="inquiryDetails?.status === 'REJECTED' || inquiryDetails?.status === 'COMPLETED' || inquiryDetails?.status === 'VERIFIED'">REJECT</button>
-        <button class="btn btn-success" (click)="verify()" style="margin-left:10px;" [disabled]="inquiryDetails?.status === 'REJECTED' || inquiryDetails?.status === 'COMPLETED' || inquiryDetails?.status === 'VERIFIED'">VERIFY</button>
+
+        <button  (click)="verify()" class="btn btn-success">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
+          <span *ngIf="!loading">VERIFY</span>
+        </button>
       </div>
 
       <div class="button-container mt-2"  *ngIf="getRole() === 'COMPANYADMIN'">
-        <button class="btn btn-success" (click)="complete()" style="margin-left:10px;" [disabled]=" inquiryDetails?.status === 'REJECTED' || inquiryDetails?.status === 'COMPLETED'">COMPLETE</button>
+        <button  (click)="complete()" class="btn btn-success" style="margin-left:10px;" [disabled]=" inquiryDetails?.status === 'REJECTED' || inquiryDetails?.status === 'COMPLETED'">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
+          <span *ngIf="!loading">COMPLETE</span>
+        </button>
+      
       </div>
+
+
 
 
   </div>

@@ -17,6 +17,7 @@ export class InquiryCreateComponent implements OnInit {
   uploadedFiles: File[] = [];
   filePreviews: SafeUrl[] = [];
 
+
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
@@ -29,6 +30,8 @@ export class InquiryCreateComponent implements OnInit {
     this.inquiryForm = this.fb.group({
       title: ['', Validators.required],
       companyCode: ['', Validators.required],
+      category: ['', Validators.required],
+      priorityLevel: ['', Validators.required],
       description: ['', Validators.required],
       customerName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -88,9 +91,13 @@ export class InquiryCreateComponent implements OnInit {
       return;
     }
 
+    
+
     const formData = new FormData();
     formData.append('title', this.inquiryForm.get('title')!.value);
     formData.append('companyCode', this.inquiryForm.get('companyCode')!.value);
+    formData.append('category', this.inquiryForm.get('category')!.value);
+    formData.append('priorityLevel', this.inquiryForm.get('priorityLevel')!.value);
     formData.append('description', this.inquiryForm.get('description')!.value);
     formData.append('customerName', this.inquiryForm.get('customerName')!.value);
     formData.append('email', this.inquiryForm.get('email')!.value);
@@ -111,7 +118,8 @@ export class InquiryCreateComponent implements OnInit {
         this.cdr.detectChanges();
 
         alert("successfully added inquiry");
-        this.router.navigate(['/customer-inquiry']);
+
+        this.router.navigate(['/view-inquiries']);
 
 
       },

@@ -26,3 +26,22 @@
   .text-center {
     text-align: center;
   }
+
+  #priorityLevel {
+    background-color: white; /* Default */
+  }
+  
+  #priorityLevel option[value="LOW"] {
+    background-color: #d4edda; /* Light green */
+    color: black;
+  }
+  
+  #priorityLevel option[value="MEDIUM"] {
+    background-color: #fff3cd; /* Light yellow */
+    color: black;
+  }
+  
+  #priorityLevel option[value="HIGH"] {
+    background-color: #f8d7da; /* Light red */
+    color: black;
+  }
