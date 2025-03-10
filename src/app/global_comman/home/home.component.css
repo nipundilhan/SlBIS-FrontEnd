@@ -176,3 +176,59 @@ p {
   width: 60px; /* Icon size */
   height: 60px;
 }
+
+
+
+
+
+
+
+
+/* --------------------------- why choose us section ------------------------- */
+
+.why-choose-us {
+  background-color: #f8f9fa;
+  padding: 50px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+.why-choose-us h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.why-choose-us p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.benefits {
+  margin: 30px 0;
+  text-align: left;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.checkmark {
+  font-size: 1.5rem;
+  margin-right: 10px;
+  color: #28a745;
+}
+
+.closing-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #444;
+  margin-top: 20px;
+}

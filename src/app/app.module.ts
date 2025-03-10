@@ -35,6 +35,7 @@ import { DashboardComponent } from './sLBis/admin/dashboard/dashboard.component'
 import { Report1Component } from './sLBis/reports/report1/report1.component';
 import { Report2Component } from './sLBis/reports/report2/report2.component';
 import { Calender1Component } from './sLBis/admin/calender1/calender1.component';
+import { ContactusComponent } from './global_comman/contactus/contactus.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { Calender1Component } from './sLBis/admin/calender1/calender1.component'
     DashboardComponent,
     Report1Component,
     Report2Component,
-    Calender1Component
+    Calender1Component,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,
